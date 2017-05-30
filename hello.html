@@ -11,7 +11,7 @@
 
             <input type="text" id="input" v-model="newName">
 
-            <button id="button" @click="addName">Add name</button>
+            <button id="button" @click="addName" :title="title">Add name</button>
         </div>
 
         <script src="https://unpkg.com/vue"></script>
@@ -21,7 +21,8 @@
                 el: '#root',
                 data: {
                     newName: '',
-                    names: ['Joe', 'Mary', 'Jane', 'Jack']
+                    names: ['Joe', 'Mary', 'Jane', 'Jack'],
+                    title: 'This is the title'
                 },
                 methods: {
                     addName(){
