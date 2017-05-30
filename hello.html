@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>Vue tutorial</title>
+        <style>
+            .is-loading { background: red; }
+        </style>
     </head>
     <body>
         <div id="root">
@@ -11,7 +14,7 @@
 
             <input type="text" id="input" v-model="newName">
 
-            <button id="button" @click="addName" :title="title">Add name</button>
+            <button id="button" @click="toggleColor" :title="title" :class="{ 'is-loading': isLoading }">Add name</button>
         </div>
 
         <script src="https://unpkg.com/vue"></script>
@@ -22,12 +25,16 @@
                 data: {
                     newName: '',
                     names: ['Joe', 'Mary', 'Jane', 'Jack'],
-                    title: 'This is the title'
+                    title: 'This is the title',
+                    isLoading: false
                 },
                 methods: {
                     addName(){
                         this.names.push(this.newName);
                         this.newName = '';
+                    },
+                    toggleColor(){
+                        this.isLoading = !this.isLoading;
                     }
                 }
                 // mounted() {
